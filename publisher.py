@@ -3,7 +3,7 @@ from icd_config import Command, int_to_bytes
 
 
 HANDSHAKE_DESTINATION = '/queue/handshake'
-INSTRUCTIONS_DESTINATION = '/queue/instructions'
+INSTRUCTIONS_DESTINATION = '/queue/operator_0'
 
 
 class Connection:
