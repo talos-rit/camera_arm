@@ -16,9 +16,10 @@ def main():
     
     tracker = MediaPipeTracker(args.source)
     director = BasicDirector(tracker, "./config.yaml")
+    left, top, right, bottom = director.calculate_acceptable_box()
 
     while True:
-        frame = tracker.capture_frame()
+        frame = tracker.capture_frame(left, top, right, bottom)
 
         #Helpful for bounding boxes on screen, this can be removed later
         if cv2.waitKey(1) & 0xFF == ord('q'):

@@ -65,7 +65,7 @@ class MediaPipeTracker(Tracker):
         return bboxes
     
     # Capture a frame from the source and detect faces in the frame
-    def capture_frame(self):
+    def capture_frame(self, left, top, right, bottom):
 
         hasFrame, frame = self.cap.read()
         if not hasFrame:
@@ -79,6 +79,7 @@ class MediaPipeTracker(Tracker):
             x1, y1, x2, y2 = bbox
             # Draw the rectangle on the frame (color = green, thickness = 2)
             cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.rectangle(frame, (left, top), (right, bottom), (255, 0, 0), 2)
 
         # Display the frame with bounding boxes in a window
         cv2.imshow('Object Detection', frame)
